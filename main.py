@@ -1,5 +1,5 @@
 import time
-import day01, day02, day03, day04
+import day01
 
 p1, p2 = 'p1', 'p2'
 def run(module, p, input):
@@ -11,17 +11,6 @@ def run(module, p, input):
   end = time.time()
   print(f"(t={end - start})")
 
+day01.test()
 run(day01, p1, "inputs/day01.txt")
-run(day01, p2, "inputs/day01.txt")
-
-day02.test()
-run(day02, p1, "inputs/day02.txt")
-run(day02, p2, "inputs/day02.txt")
-
-day03.test()
-run(day03, p1, "inputs/day03.txt")
-run(day03, p2, "inputs/day03.txt")
-
-day04.test()
-run(day04, p1, [178416, 676461])
-run(day04, p2, [178416, 676461])
+#run(day01, p2, "inputs/day01.txt")

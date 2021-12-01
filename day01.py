@@ -1,28 +1,25 @@
-from functools import reduce
+from test import build_test
 
 def p1(input):
   file = open(input)
-  masses = list(int(x.strip('\n')) for x in file.readlines())
+  depths = list(int(x.strip('\n')) for x in file.readlines())
   file.close()
 
-  sum = reduce(lambda x, y: x + y // 3 - 2, masses, 0)
+  output = count_increases(depths)
+  print(output)
 
-  print(sum)
+def count_increases(depths):
+  increases = 0
 
-def p2(input):
-  file = open(input)
-  masses = list(int(x.strip('\n')) for x in file.readlines())
-  file.close()
+  for i in range(len(depths)):
+    if i == 0:
+      continue
 
-  sum = 0
-  for mass in masses:
-    sum += recurse_fuel(mass)
+    if depths[i] > depths[i - 1]:
+      increases += 1
 
-  print(sum)
+  return increases
 
-def recurse_fuel(mass):
-  fuel = mass // 3 - 2
-  if fuel <= 0:
-    return 0
-
-  return fuel + recurse_fuel(fuel)
+def test():
+  test_case = build_test(count_increases)
+  test_case([199,200,208,210,200,207,240,269,260,263], 7)
