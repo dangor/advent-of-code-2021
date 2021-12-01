@@ -13,4 +13,4 @@ def run(module, p, input):
 
 day01.test()
 run(day01, p1, "inputs/day01.txt")
-#run(day01, p2, "inputs/day01.txt")
+run(day01, p2, "inputs/day01.txt")
