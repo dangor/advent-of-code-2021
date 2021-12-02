@@ -1,5 +1,5 @@
 import time
-import day01
+import day01, day02
 
 p1, p2 = 'p1', 'p2'
 def run(module, p):
@@ -14,3 +14,6 @@ def run(module, p):
 day01.test()
 run(day01, p1)
 run(day01, p2)
+
+day02.test()
+run(day02, p1)
