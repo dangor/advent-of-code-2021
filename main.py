@@ -17,3 +17,4 @@ run(day01, p2)
 
 day02.test()
 run(day02, p1)
+run(day02, p2)
