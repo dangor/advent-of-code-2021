@@ -1,20 +1,16 @@
-from test import build_test
-
 def p1(input):
   file = open(input)
   depths = list(int(x.strip('\n')) for x in file.readlines())
   file.close()
 
-  output = count_window_increases(depths, 1)
-  print(output)
+  return count_window_increases(depths, 1)
 
 def p2(input):
   file = open(input)
   depths = list(int(x.strip('\n')) for x in file.readlines())
   file.close()
 
-  output = count_window_increases(depths, 3)
-  print(output)
+  return count_window_increases(depths, 3)
 
 def count_window_increases(depths, window):
   increases = 0
@@ -33,16 +29,3 @@ def window_sum(depths, i, size):
   for j in range(size):
     sum += depths[i - j]
   return sum
-
-def test():
-  test_case = build_test(p1_test)
-  test_case([199,200,208,210,200,207,240,269,260,263], 7)
-
-  test_case = build_test(p2_test)
-  test_case([199,200,208,210,200,207,240,269,260,263], 5)
-
-def p1_test(input):
-  return count_window_increases(input, 1)
-
-def p2_test(input):
-  return count_window_increases(input, 3)
