@@ -9,3 +9,4 @@ run(day02, p1, 150)
 run(day02, p2, 900)
 
 run(day03, p1, 198)
+run(day03, p2, 230)
