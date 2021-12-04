@@ -13,12 +13,43 @@ def p1(input):
 
   return sum * draw
 
+def p2(input):
+  file = open(input)
+  (drawing, boards, index) = parse(file)
+  file.close()
+
+  (losing_board, draw) = lose_bingo(drawing, boards, index)
+
+  sum = 0
+  for row in losing_board:
+    for cell in row:
+      if not cell['marked']:
+        sum += cell['value']
+
+  return sum * draw
+
 def play_bingo(drawing, boards, index):
   for draw in drawing:
     for cell in index[draw]:
       cell['marked'] = True
       if is_winner(boards[cell['board']], cell):
         return (boards[cell['board']], draw)
+  
+  raise "no winner"
+
+def lose_bingo(drawing, boards, index):
+  in_play = set(range(len(boards)))
+  for draw in drawing:
+    for cell in index[draw]:
+      b = cell['board']
+      if b not in in_play:
+        continue
+
+      cell['marked'] = True
+      if is_winner(boards[b], cell):
+        in_play.remove(b)
+        if len(in_play) == 0:
+          return (boards[b], draw)
   
   raise "no winner"
 
