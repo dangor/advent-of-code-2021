@@ -15,3 +15,4 @@ run(day04, p1, 4512)
 run(day04, p2, 1924)
 
 run(day05, p1, 5)
+run(day05, p2, 12)
