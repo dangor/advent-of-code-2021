@@ -18,3 +18,4 @@ run(day05, p1, 5)
 run(day05, p2, 12)
 
 run(day06, p1, 5934)
+run(day06, p2, 26984457539)
