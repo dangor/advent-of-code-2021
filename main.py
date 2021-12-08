@@ -24,3 +24,4 @@ run(day07, p1, 37)
 run(day07, p2, 168)
 
 run(day08, p1, 26)
+run(day08, p2, 61229)
