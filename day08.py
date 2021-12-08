@@ -26,8 +26,8 @@ def p2(input):
     outputs = line[1].split(' ')
     both = inputs + outputs
 
-    one = find_part(both, 2)
-    four = find_part(both, 4)
+    one = set(find_part(both, 2))
+    four = set(find_part(both, 4))
 
     output_digits = ""
 
@@ -41,36 +41,22 @@ def p2(input):
         output_digits += "4"
       elif segments == 7:
         output_digits += "8"
-      elif segments == 5: # 2, 3, 5
-        if one[0] in output and one[1] in output:
-          output_digits += "3"
-        else: # 2 or 5
-          count_same = 0
-          for x in four:
-            if x in output:
-              count_same += 1
-          if count_same == 3:
-            output_digits += "5"
-          elif count_same == 2:
-            output_digits += "2"
-          else:
-            raise "2/3/5 logic is wrong"
-      elif segments == 6: # 0, 6, 9
-        if one[0] not in output or one[1] not in output:
-          output_digits += "6"
-        else:
-          count_same = 0
-          for x in four:
-            if x in output:
-              count_same += 1
-          if count_same == 4:
-            output_digits += "9"
-          elif count_same == 3:
-            output_digits += "0"
-          else:
-            raise "0/6/9 logic is wrong"
       else:
-        raise "wrong assumption on digits"
+        output_set = set(output)
+        if segments == 5: # 2, 3, 5
+          if len(output_set.intersection(one)) == 2:
+            output_digits += "3"
+          elif len(output_set.intersection(four)) == 3:
+            output_digits += "5"
+          else:
+            output_digits += "2"
+        elif segments == 6: # 0, 6, 9
+          if len(output_set.intersection(one)) == 1:
+            output_digits += "6"
+          elif len(output_set.intersection(four)) == 4:
+            output_digits += "9"
+          else:
+            output_digits += "0"
 
     sum += int(output_digits)
 
