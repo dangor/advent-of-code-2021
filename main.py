@@ -30,3 +30,4 @@ run(day10, p1, 26397)
 run(day10, p2, 288957)
 
 run(day11, p1, 1656)
+run(day11, p2, 195)

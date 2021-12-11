@@ -12,6 +12,20 @@ def p1(input):
 
   return total
 
+def p2(input):
+  file = open(input)
+  current_gen = list(list(map(int, list(x.strip('\n')))) for x in file.readlines())
+  file.close()
+
+  i = 0
+
+  while(True):
+    i += 1
+    (flashes, next_gen) = step(current_gen)
+    current_gen = next_gen
+    if flashes == 100:
+      return i
+
 def step(gen):
   for i in range(len(gen)):
     for j in range(len(gen)):
