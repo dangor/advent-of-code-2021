@@ -1,5 +1,5 @@
 from runner import run
-import day01, day02, day03, day04, day05, day06, day07, day08
+import day01, day02, day03, day04, day05, day06, day07, day08, day09
 p1, p2 = 'p1', 'p2'
 
 run(day01, p1, 7)
@@ -25,3 +25,5 @@ run(day07, p2, 168)
 
 run(day08, p1, 26)
 run(day08, p2, 61229)
+
+run(day09, p1, 26397)
