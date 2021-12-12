@@ -36,3 +36,4 @@ run(day11, p1, 1656)
 run(day11, p2, 195)
 
 run(day12, p1, 226)
+#slow run(day12, p2, 3509)
