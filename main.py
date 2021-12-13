@@ -39,3 +39,4 @@ run(day12, p1, 226)
 #slow run(day12, p2, 3509)
 
 run(day13, p1, 17)
+run(day13, p2)

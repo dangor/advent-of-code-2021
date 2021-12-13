@@ -10,6 +10,25 @@ def p1(input):
     coords = fold_y(coords, fold[1])
 
   return len(coords)
+
+def p2(input):
+  file = open(input)
+  (coords, folds) = parse(file)
+  file.close()
+
+  for fold in folds:
+    if fold[0] == 'x':
+      coords = fold_x(coords, fold[1])
+    else:
+      coords = fold_y(coords, fold[1])
+
+  for i in range(6):
+    for j in range(39):
+      if (j, i) in coords:
+        print('x', end = '')
+      else:
+        print(' ', end = '')
+    print('')
     
 def fold_x(coords, x):
   copy = list(coords)
