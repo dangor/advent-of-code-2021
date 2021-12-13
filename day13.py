@@ -25,7 +25,7 @@ def p2(input):
   for i in range(6):
     for j in range(39):
       if (j, i) in coords:
-        print('x', end = '')
+        print('#', end = '')
       else:
         print(' ', end = '')
     print('')
