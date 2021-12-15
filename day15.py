@@ -1,35 +1,26 @@
+from a_star import a_star
+
 def p1(input):
   file = open(input)
   lines = list(list(map(int, list(x.strip('\n')))) for x in file.readlines())
   file.close()
 
-  global min_risk
-  min_risk = 10*100
+  start = (0, 0)
+  goal = (len(lines) - 1, len(lines[0]) - 1)
 
-  traverse(lines)
+  def neighbors(coord):
+    neighbors = []
+    if coord[0] < goal[0]:
+      neighbors.append((coord[0] + 1, coord[1]))
+    if coord[1] < goal[1]:
+      neighbors.append((coord[0], coord[1] + 1))
+    return neighbors
 
-  return min_risk - lines[0][0]
+  path = a_star(lines, start, goal, neighbors)
 
-def traverse(lines, i = 0, j = 0, current = 0):
-  global min_risk
+  path.pop(0) # remove start
+  risk = 0
+  for coord in path:
+    risk += lines[coord[0]][coord[1]]
 
-  new_current = current + lines[i][j]
-  if new_current >= min_risk:
-    # short circuit
-    return min_risk
-
-  if i == len(lines) - 1 and j == len(lines[0]) - 1:
-    # at the end
-    if new_current < min_risk:
-      min_risk = new_current
-    return
-
-  if i < len(lines) - 1:
-    # go right
-    traverse(lines, i + 1, j, new_current)
-
-  if j < len(lines[0]) - 1:
-    # go down
-    traverse(lines, i, j + 1, new_current)
-
-  return
+  return risk
