@@ -48,3 +48,4 @@ run(day15, p1, 40)
 #slow run(day15, p2, 315)
 
 run(day18, p1, 4140)
+#slow run(day18, p2, 3993) (t = 12.12s)

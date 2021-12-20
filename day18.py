@@ -104,6 +104,24 @@ def p1(input):
 
   return magnitude(current)
 
+def p2(input):
+  file = open(input)
+  lines = list(x.strip('\n') for x in file.readlines())
+  file.close()
+
+  largest = 0
+  for i in range(len(lines)):
+    for j in range(len(lines)):
+      if i == j:
+        continue
+      snail = Node(convert_to_btree(eval(lines[i])), convert_to_btree(eval(lines[j])))
+      reduce_snail(snail)
+      value = magnitude(snail)
+      if value > largest:
+        largest = value
+
+  return largest
+
 def convert_to_btree(snail, parent = None):
   if type(snail) != list:
     return snail
